@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DAL.CSVReader;
@@ -64,6 +63,9 @@ namespace RiskCalculationApp
             var obj = (Winner)row.DataBoundItem;
             ShowCustomerDetatils(obj.Customer);
         }
+     /// <summary>
+     /// this funcation is used to change the grid cell colors
+     /// </summary>
         private void ChangeRowsStyle(){
             var lstUnSattledBids = (List<UnsettledBids>)gvUnsattledCustomers.DataSource;
             var unUsaulAmounttoWin = 1000;
@@ -158,7 +160,10 @@ namespace RiskCalculationApp
         {
             return UnSettledReader.GetAllUnSettledCustomers();
         }
-      
+      /// <summary>
+      /// load the sattled bit customers hisotry havint unsual wins
+      /// </summary>
+      /// <param name="customerid"></param>
         private void ShowCustomerDetatils(int customerid)
         {
             var lstSattledCustomers = GetSattledCustomerList();
